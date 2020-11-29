@@ -1,0 +1,14 @@
+Package: enigma2-plugin-extensions-debugger
+Version: 0.1
+Description: Python debug server using debugpy
+Section: base
+Priority: optional
+Maintainer: Simon Capewell
+License: GPL
+Architecture: all
+OE: enigma2
+Homepage: https://github.com/simoncapewell/enigma2-debugger-plugin
+Depends: python-pip
+Source: https://github.com/simoncapewell/enigma2-debugger-plugin/dist/main.zip
+Breaks: enigma2-plugin-extensions-debugger
+Replaces: enigma2-plugin-extensions-debugger
