@@ -7,6 +7,7 @@ from Plugins.Plugin import PluginDescriptor
 from Screens.MessageBox import MessageBox
 
 from DebuggerSetup import DebuggerSetup
+from SkinAutoReloader import SkinAutoReloader
 
 isListening = False
 
@@ -100,6 +101,20 @@ def Plugins(**kwargs):
 			description=_("Stop the debugpy server"),
 			where=[PluginDescriptor.WHERE_EXTENSIONSMENU],
 			fnc=stop,
+			needsRestart=False),
+
+		PluginDescriptor(
+			name=_("Auto reload skin: Start"),
+			description=_("Auto reloads the the current skin whenever xml files are modified in the skin directory"), 
+			where=[PluginDescriptor.WHERE_EXTENSIONSMENU],
+			fnc=SkinAutoReloader.start,
+			needsRestart=False),
+
+		PluginDescriptor(
+			name=_("Auto reload skin: Stop"),
+			description=_("Stops the skin auto reloader"), 
+			where=[PluginDescriptor.WHERE_EXTENSIONSMENU],
+			fnc=SkinAutoReloader.stop,
 			needsRestart=False)
 	]
 
