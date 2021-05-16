@@ -6,8 +6,7 @@ from Components.config import config
 from Plugins.Plugin import PluginDescriptor
 from Screens.MessageBox import MessageBox
 
-from DebuggerSetup import DebuggerSetup
-from SkinAutoReloader import SkinAutoReloader
+from .SkinAutoReloader import SkinAutoReloader
 
 isListening = False
 
@@ -18,7 +17,7 @@ def startListening():
 
 	try:
 		network = about.getIfConfig("eth0") or about.getIfConfig("eth1") or about.getIfConfig("wlan0")
-		if not network or not network.has_key("addr"):
+		if not network or not "addr" in network:
 			return False
 		sys.argv = [] # debugpy.listen crashes without this
 		import debugpy
@@ -75,6 +74,7 @@ def sessionStart(reason, session, **kwargs):
 		session.open(MessageBox, "Failed to start debug server.", MessageBox.TYPE_ERROR)
 
 def setup(session, **kwargs):
+	from .DebuggerSetup import DebuggerSetup
 	session.open(DebuggerSetup)
 
 def Plugins(**kwargs):
