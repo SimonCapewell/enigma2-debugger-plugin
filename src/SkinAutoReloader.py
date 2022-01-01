@@ -34,8 +34,8 @@ class SkinAutoReloader(object):
 		if self.bounceTimer:
 			return
 		file, ext = filepath.splitext()
-		if ext == ".xml":
-			print("[SkinAutoReloader] Detected a change to %s%s" % (file, ext))
+		print("[SkinAutoReloader] Detected a change to %s%s" % (file, ext))
+		if ext == b".xml":
 			self.bounceTimer = eTimer()
 			self.bounceTimer.callback.append(self.__reloadSkin)
 			self.bounceTimer.start(500, True)
