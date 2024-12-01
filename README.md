@@ -13,7 +13,15 @@ You can also set the environment variable `ENIGMA_DEBUGPY_START_MODE` to overrid
 
 This is handy if you want to ensure running enigma2 from bash always has a debug server available. e.g define an alias
 ```
-alias e2debug="export ENIGMA_DEBUGPY_START_MODE=1;/hdd/bin/enigmad;unset ENIGMA_DEBUGPY_START_MODE"
+alias e2debug="export ENIGMA_DEBUGPY_START_MODE=1;enigma2;unset ENIGMA_DEBUGPY_START_MODE"
+```
+
+### Pre-requisites
+debugpy must be installed on your enigma2 machine
+```
+opkg install gdb python3-compile python3-xmlrpc python3-plistlib python3-ensurepip
+python -m ensurepip
+pip3 install debugpy
 ```
 
 ### On a dev machine
